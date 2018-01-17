@@ -14,4 +14,19 @@ results.ops es el arreglo de documentos devueltos que son insertados
   puedes acceder al timepstamp con  
     result.ops[0]._id.getTimeStamp()
 
-  
+como hacer un query en general en mongoDB
+
+  db
+    .collection("Todos")
+    .find({ completed: true })
+    .toArray()
+    .then(docs => {
+      console.log("Todos");
+      console.log(JSON.stringify(docs, undefined, 2));
+    })
+    .catch(err => {
+      console.log("Unable to fetch todos: ", err);
+    });
+
+find()
+  sin parametros : retorna todos los documentos en la coleccion. pero usa toArray() o otra funcion para usarlos
