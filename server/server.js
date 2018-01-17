@@ -1,29 +1,18 @@
-let mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
 
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/TodoApp");
+const { mongoose } = require("./db/mongoose");
+let { Todo } = require("./models/Todo");
+let { User } = require("./models/User");
 
-// save new something
+let app = express();
 
-let Todo = mongoose.model("Todo", {
-  text: {
-    type: String
-  },
-  completed: {
-    type: Boolean
-  },
-  completedAt: {
-    type: Number
-  }
+app.use(bodyParser.json()); // para leer req.body
+
+app.post("/todos", (req, res) => {
+  console.log(req.body);
 });
 
-let newTodo = new Todo({
-  text: "cook dinner 2",
-  completed: false,
-  completedAt: 534
+app.listen(3000, () => {
+  console.log("started on port 3000");
 });
-
-newTodo
-  .save()
-  .then(doc => console.log(doc))
-  .catch(e => console.log(e));
