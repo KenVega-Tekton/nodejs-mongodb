@@ -1,0 +1,17 @@
+en mongoDB no hay necesidad de crear databases
+
+se crean cuando las empiezas a usar por sí solas
+
+lo mismo sucede con las colecciones
+
+cuando insertas varios documentos(filas para sql), cada uno de ellos tiene un oid que es un id como objeto
+  este contiene el id formado por el timepstamp en el momento en el que se creó
+  el _id es automatico pero puedes definirlo por tu cuenta tambien
+
+results.ops es el arreglo de documentos devueltos que son insertados
+  puedes acceder a cada uno de los elementos insertados como un arreglo
+
+  puedes acceder al timepstamp con  
+    result.ops[0]._id.getTimeStamp()
+
+  
