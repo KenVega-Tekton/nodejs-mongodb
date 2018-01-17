@@ -30,3 +30,13 @@ como hacer un query en general en mongoDB
 
 find()
   sin parametros : retorna todos los documentos en la coleccion. pero usa toArray() o otra funcion para usarlos
+
+findOneAndDelete
+  borra el primero que encuentra que hace match con el query
+
+metodos para mongoDB
+  insertOne()
+  findOneAndDelete()
+  find()
+
+  

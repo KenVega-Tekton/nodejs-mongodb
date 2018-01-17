@@ -7,11 +7,11 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", (err, db) => {
   console.log("Connected to mongoDB server");
 
   db
-    .collection("Todos")
-    .find()
+    .collection("Users")
+    .find({ name: "Ken2" })
     .count()
     .then(count => {
-      console.log("Todos counted : ", count);
+      console.log("Users counted with the name Ken2 : ", count);
     })
     .catch(err => {
       console.log("Unable to fetch todos: ", err);
